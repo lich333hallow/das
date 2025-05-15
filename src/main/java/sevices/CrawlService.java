@@ -52,11 +52,7 @@ public class CrawlService {
         Bukkit.getPluginManager().callEvent(prePlayerCrawlEvent);
         if(prePlayerCrawlEvent.isCancelled()) return null;
 
-        System.out.println(player);
-        System.out.println(testPlugin.getEntityUtil());
-
         IGCrawl crawl = testPlugin.getEntityUtil().createCrawl(player);
-        System.out.println(player);
         crawl.start();
         crawls.put(player.getUniqueId(), crawl);
         crawlUsageCount++;

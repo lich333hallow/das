@@ -129,7 +129,6 @@ public class GCrawl implements IGCrawl{
   @Override
   public void stop() {
     finished = true;
-
     HandlerList.unregisterAll(listener);
     HandlerList.unregisterAll(moveListener);
     HandlerList.unregisterAll(stopListener);

@@ -1,6 +1,7 @@
 package sevices;
 
 import io.papermc.paperweight.testplugin.TestPlugin;
+import util.EntityUtil;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -54,12 +55,13 @@ public class VerisonService {
         return null;
     }
 
-    public Object getPackageObjectInstance(String className, Object... parameters) {
+    public Object getPackageObjectInstance(String className, TestPlugin parameters) {
         try {
-            Class<?> mcvPackageClass = Class.forName(packagePath + "." + className);
-            if(parameters.length == 0) return mcvPackageClass.getConstructor().newInstance();
-            Class<?>[] parameterTypes = Arrays.stream(parameters).map(Object::getClass).toArray(Class<?>[]::new);
-            return mcvPackageClass.getConstructor(parameterTypes).newInstance(parameters);
+//            Class<?> mcvPackageClass = Class.forName(packagePath + "." + className);
+//            if(parameters.length == 0) return mcvPackageClass.getConstructor().newInstance();
+//            Class<?>[] parameterTypes = Arrays.stream(parameters).map(Object::getClass).toArray(Class<?>[]::new);
+//            return mcvPackageClass.getConstructor(parameterTypes).newInstance(parameters);
+          return new EntityUtil(parameters);
         } catch(Throwable e) { testPlugin.getLogger().log(Level.SEVERE, "Could not get package object with class name '" + className + "'!", e); }
         return null;
     }

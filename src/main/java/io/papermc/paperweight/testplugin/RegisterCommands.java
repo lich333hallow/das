@@ -21,7 +21,7 @@ public class RegisterCommands {
 
   public void registry(LifecycleEventManager<Plugin> lifecycleManager){
     lifecycleManager.registerEventHandler(LifecycleEvents.COMMANDS, (event -> {
-      LiteralCommandNode<CommandSourceStack> cmd = Commands.literal("scp").then(Commands.literal("gcrawl")).executes(startCrawl).build();
+      LiteralCommandNode<CommandSourceStack> cmd = Commands.literal("scp").then(Commands.literal("gcrawl").executes(startCrawl)).build();
       event.registrar().register(cmd);
     }));
   }
